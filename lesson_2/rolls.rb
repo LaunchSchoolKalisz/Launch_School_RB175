@@ -52,3 +52,8 @@ loop do
 
   client.close
 end
+
+# Reminder - 3 components of a HTTP Request:
+#  1. Status (200 OK, 400, etc. Required!) 
+#  2. Headers (in this case, "Content-Type: text/html\r\n\r\n". Not required, can be more than 1) 
+#  3. Body (not required)
