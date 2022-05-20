@@ -25,19 +25,30 @@ loop do
   http_method, path, params = parse_request(request_line)
 
   client.puts "HTTP/1.1 200 OK" #add a valid status line to your response first, before adding the content of the message body for browsers like Chrome which expects a well-formed response to be sent to it for rendering
-  client.puts "Content-Type: text/plain\r\n\r\n" # add in a response header value
+  client.puts "Content-Type: text/html\r\n\r\n" # add in a response header value
+  client.puts
 
+  client.puts "<html>"
+  client.puts "<body>"
+  client.puts "<pre>" # Displays content as plain text
   client.puts request_line # Send back to the client so it appears in the web browser
   client.puts http_method
   client.puts path
   client.puts params
+  client.puts "</pre>"
+
+  client.puts "<h1>Rolls!</h1>"
 
   rolls = params["rolls"].to_i
   sides = params["sides"].to_i
 
   rolls.times do |_|
-    client.puts rand(sides) + 1
+    roll = rand(sides) + 1
+    client.puts "<p>", roll, "</p>"
   end
+
+  client.puts "</body>"
+  client.puts "</html>"
 
   client.close
 end
