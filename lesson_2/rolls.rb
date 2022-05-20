@@ -29,8 +29,11 @@ loop do
   client.puts path
   client.puts params
 
-  params["rolls"].to_i.times do |_|
-    client.puts rand(params["sides"].to_i) + 1
+  rolls = params["rolls"].to_i
+  sides = params["sides"].to_i
+
+  rolls.times do |_|
+    client.puts rand(sides) + 1
   end
 
   client.close
