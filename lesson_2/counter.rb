@@ -21,7 +21,7 @@ loop do
   next if !request_line || request_line =~ /favicon/ 
   puts request_line 
 
-  next unless request_line
+  next unless request_line # Deals with empty requests
 
   http_method, path, params = parse_request(request_line)
 
