@@ -1,7 +1,8 @@
-require_relative 'advice'
 require_relative 'framework'
+require_relative 'advice'
 
-class App
+
+class App < Framework
   def call(env)
     case env['REQUEST_PATH']
     when '/'
@@ -11,9 +12,9 @@ class App
         erb :index
       end
     when '/advice'
-      piece_of_advice = Advice.new.generate
       status = '200'
       headers = {"Content-Type" => 'text/html'}
+      piece_of_advice = Advice.new.generate
       response(status, headers) do
         erb :advice, message: piece_of_advice
       end
