@@ -1,4 +1,5 @@
 require_relative 'advice'
+require_relative 'framework'
 
 class App
   def call(env)
@@ -23,19 +24,5 @@ class App
         erb :not_found
       end
     end
-  end
-
-  private
-
-  def erb(filename, local = {})
-    b = binding
-    message = local[:message] 
-    content = File.read("views/#{filename}.erb")
-    ERB.new(content).result(b)
-  end
-
-  def response(status, headers, body = "")
-    body = yield if block_given?
-    [status, headers, [body]]
   end
 end
