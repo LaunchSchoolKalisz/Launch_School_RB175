@@ -8,7 +8,7 @@ class App
       status = '200'
       headers = {"Content-Type" => "text/html"}
       response(status, headers) do 
-        erb(:index)
+        erb :index
       end
     when '/advice'
       piece_of_advice = Advice.new.generate
