@@ -22,9 +22,11 @@ class HelloWorld
   end
 
   private
-  
-  def erb(filename)
+
+  def erb(filename, local = {})
+    b = binding
+    message = local[:message] 
     content = File.read("views/#{filename}.erb")
-    ERB.new(content).result
+    ERB.new(content).result(b)
   end
 end
