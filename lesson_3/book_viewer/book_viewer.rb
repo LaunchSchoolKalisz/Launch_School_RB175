@@ -9,3 +9,8 @@ get "/" do
   
   erb :home
 end
+
+get "/chapters/1" do
+  @text = File.read("data/chp1.txt")
+
+end
