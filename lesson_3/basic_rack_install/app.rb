@@ -1,6 +1,6 @@
 require_relative 'advice'
 
-class HelloWorld
+class App
   def call(env)
     case env['REQUEST_PATH']
     when '/'
