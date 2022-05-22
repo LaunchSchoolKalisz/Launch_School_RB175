@@ -24,6 +24,7 @@ GEM
       sinatra (= 2.2.0)
       tilt (~> 2.0)
     tilt (2.0.10)
+    webrick (1.7.0)
 
 PLATFORMS
   linux
@@ -34,6 +35,7 @@ DEPENDENCIES
   puma
   sinatra
   sinatra-contrib
+  webrick
 
 RUBY VERSION
    ruby 3.0.0p0
