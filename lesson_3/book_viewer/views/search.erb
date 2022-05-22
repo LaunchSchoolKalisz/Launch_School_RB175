@@ -20,7 +20,7 @@
             <% result[:paragraphs].each do |index, phrase| %>
               <li>
                 <a href="/chapters/<%= result[:number] %>#paragraph<%= index %>"> 
-                  <%= phrase %>
+                  <%= make_bold(phrase, params[:query]) %>
                 </a>
               </li>
             <% end %>
