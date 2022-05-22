@@ -4,6 +4,9 @@ require "sinatra"
 require "sinatra/reloader"
 require "tilt/erubis"
 
-get "/" do
+before do
+  @users = YAML.load_file("users.yaml")
+end
 
+get "/" do
 end
